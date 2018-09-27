@@ -1,0 +1,42 @@
+<ion-menu [content]="content">
+  <ion-slides pager>
+
+    <ion-slide style="background-color: white">
+          
+                    <ion-title>Businesses</ion-title>
+                  
+        <button ion-item detail-none *ngFor="let biz  of businesses" (click)=" switchstore(biz)">
+            <!-- <img [src]="nav.icon" class="nav-icon"> -->
+            {{biz.business_name}}
+          </button>
+          
+          
+    </ion-slide>
+
+    <ion-slide style="background-color:white">
+
+            <ion-title>Menu</ion-title>
+
+  
+          <button ion-item detail-none *ngFor="let nav of sideMenu.Products" (click)="openPage(nav)">
+       
+            {{nav.title}}
+          </button>
+          <button ion-item detail-none (click)="signOut() ">
+       
+            Log out
+          </button>
+    </ion-slide>
+
+  </ion-slides>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+
+<ion-tabs selectedIndex="2">
+  <ion-tab tabIcon="paper" [root]="SaleshistoryPage"></ion-tab>
+  <ion-tab tabIcon="md-pricetags" [root]="ItemslistPage"></ion-tab>
+  <ion-tab tabIcon="md-cash" [root]="SellproductPage"></ion-tab>
+  <ion-tab tabIcon="contacts" [root]="CustomerslistPage"></ion-tab>
+  <ion-tab tabIcon="settings" [root]="SettingPage"></ion-tab>
+</ion-tabs>

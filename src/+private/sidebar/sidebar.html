@@ -1,0 +1,53 @@
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+      <ion-item menuClose detail-none>Close Menu</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<button ion-button menuToggle>Toggle Menu</button>
+
+<ion-nav #menu [root]="rootPage"></ion-nav>
+
+<ion-tabs>
+  <ion-tab tabIcon="compass" tabTitle="Discover" [root]="DiscoverPage"></ion-tab>
+  <ion-tab tabIcon="chatbubbles" tabTitle="Messages" [root]="MessagesPage"></ion-tab>
+  <ion-tab tabIcon="cog" tabTitle="Settings" [root]="SettingsPage"></ion-tab>
+</ion-tabs>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+<ion-menu class="side-menu" id="side-menu" [content]="menu" type="overlay" persistent="true" padding-vertical>
+  <ion-content>
+    <ion-list no-lines>
+      <ion-item>Hello Emeka Ubina</ion-item>
+      <button ion-item
+              *ngFor="let nav of sideMenu"
+              (click)="openPage(nav)">
+        {{nav.title}}
+      </button>
+      <button ion-item menuClose (click)="signOut()">
+        Logout
+      </button>
+
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<button ion-button full (click)="page()"> next page test</button> -->

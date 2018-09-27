@@ -1,0 +1,7 @@
+{
+  "name": "frig",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

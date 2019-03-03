@@ -1,0 +1,52 @@
+
+  .blue .card-md {
+    margin: 10px 5px;
+    border-radius: 3px !important;
+    width: calc(100% - 10px);
+    font-size: 1.4rem;
+    background: color($colors, primary) !important;
+    -webkit-box-shadow: unset !important;
+    box-shadow: unset !important;
+  }
+  
+  .blue .card-md p {
+    margin: 0 0 2px;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.5;
+    color: white;
+  }
+   .birthday .card-md {
+    margin: 10px;
+    border-radius: 6px;
+    width: calc(100% - 20px);
+    font-size: 1.4rem;
+    background: #ebf7fdad;
+    -webkit-box-shadow: unset; 
+    box-shadow: unset; 
+}
+
+.birthday .card-md p {
+  margin: 0 0 2px;
+  font-size: 1.4rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #6b667d;
+}
+
+  .card-md p {
+    margin: 0 0 2px;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #222;
+  }
+  .card-ios {
+    margin: 10px 5px;
+    border-radius: 3px !important;
+    width: calc(100% - 10px);
+    font-size: 1.4rem;
+    background: color($colors, primary) !important;
+    -webkit-box-shadow: unset !important;
+    box-shadow: unset !important;
+  }

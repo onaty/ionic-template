@@ -1,0 +1,9 @@
+.danger > .toast-wrapper {
+  background-color: color($colors, danger);
+  color: #fff;
+}
+
+.success .toast-wrapper {
+  background-color: color($colors, success);
+  color: #fff;
+}

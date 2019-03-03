@@ -1,0 +1,54 @@
+
+  .header-md::after {
+    background-image: none;
+  }
+  ion-navbar ion-icon {
+    font-size: 1.2em !important;
+    color: black !important;
+  }
+  .toolbar-title-ios {
+    text-align: left !important;
+
+  }
+
+  .toolbar-ios ion-title {
+
+    padding-left: 30px !important;
+
+  }
+
+//   .toolbar-background-md {
+//     background: transparent;
+//     border-color: transparent;
+//   }
+
+  .toolbar-title-md {
+    font-weight: 500 !important;
+
+    color: black;
+  }
+  .toolbar-title-ios {
+    text-align: left !important;
+
+  }
+
+  .toolbar-ios ion-title {
+
+    padding-left: 30px !important;
+
+  }
+
+
+.toolbar-title-md {
+    padding: 0 12px !important;
+    font-size: 1.5rem !important;
+    font-weight: 500 !important;
+    color: black !important;
+  }
+  
+  .title {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: black;
+    // margin-left: 2vh;
+  }

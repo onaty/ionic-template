@@ -1,37 +1,63 @@
-import { SigninService } from './../../services/signin.service';
-import { PrivateTemplate } from './../../../+private/private.template';
-import { ForgotpasswordPage } from './../forgotpassword/forgotpassword';
-import { SignupPage } from './../signup/signup';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FeedbackService } from './../../../app/services/feedback.service';
-import { UserService } from './../../../app/services/user.service';
-/**
- * Generated class for the SigninPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { SigninService } from "./../../services/signin.service";
+import { ForgotpasswordPage } from "./../forgotpassword/forgotpassword";
+import { SignupPage } from "./../signup/signup";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component } from "@angular/core";
+import {
+  NavController,
+  NavParams,
+  LoadingController,
+  Platform
+} from "ionic-angular";
+import { FeedbackService } from "./../../../app/services/feedback.service";
+import { UserService } from "./../../../app/services/user.service";
 
-@IonicPage()
+
 @Component({
-  selector: 'page-signin',
-  templateUrl: 'signin.html',
+  selector: "page-signin",
+  templateUrl: "signin.html"
 })
 export class SigninPage {
+  private info: FormGroup;
 
-  constructor(public navCtrl: NavController,
+  constructor(
+    public loadingCtrl: LoadingController,
+    public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     public FeedbackService: FeedbackService,
     public SigninService: SigninService,
-  public UserService :UserService ) {
-   
+    public UserService: UserService,
+    public platform: Platform,
+  ) {
+    this.info = this.formBuilder.group({
+      email: ["", Validators.required],
+      password: ["", Validators.required]
+    });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SigninPage');
+    
   }
 
+ 
+  frs() {
+    this.navCtrl.setRoot(SignupPage);
+  }
+  signin() {
+    let loader = this.loadingCtrl.create();
+    loader.present();
+    this.SigninService.signin(this.info.value)
+      .then((data: any) => {
+       
+      })
+      .catch(err => {
+        loader.dismiss();
+        this.FeedbackService.show("danger", "", err);
+      });
+  }
+
+  forgot() {
+    this.navCtrl.setRoot(ForgotpasswordPage);
+  }
 }

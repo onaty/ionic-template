@@ -1,5 +1,5 @@
-import {ENVDEV} from "../+shared/environments/env.dev";
-import {ENVPROD} from "../+shared/environments/env.live"
+import {ENVDEV} from "../+shared/enviroment/env.dev";
+import {ENVPROD} from "../+shared/enviroment/env.live"
 
 export class AppConfig {
   public static get ENVIRONMENT(): any {
@@ -15,11 +15,11 @@ export class AppConfig {
     return this.API_BASE ;
   }
 
-  // public static get ONESIGNALAPP_ID(): any{
-  //   return AppConfig.ENVIRONMENT.oneSignalAppId;
-  // }
+  public static get ONESIGNALAPP_ID(): any{
+    return AppConfig.ENVIRONMENT.oneSignalAppId;
+  }
 
-  // public static get ONESIGNALAPP_SENDER_ID(): any{
-  //   return AppConfig.ENVIRONMENT.sender_id;
-  // }
+  public static get ONESIGNALAPP_SENDER_ID(): any{
+    return AppConfig.ENVIRONMENT.sender_id;
+  }
 }

@@ -1,56 +1,45 @@
-import { NgModule, ErrorHandler } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
-
-import { VerifyModule } from '../+verify/verify.module';
-import { PrivateModule } from '../+private/private.module';
-
-import { FeedbackService } from './services/feedback.service';
-import { AuthService } from './services/auth.service';
-
+import { PrivateModule} from './../+private/private.module';
 import { UserService } from './services/user.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInterceptor} from './services/httpclient.interceptor'
 import { HTTP_INTERCEPTORS} from '@angular/common/http';
 
+import { MyApp } from './app.component';
+import { SigninPage } from './../+verify/pages/signin/signin';
+
+import { VerifyModule } from '../+verify/verify.module';
+
+import { FeedbackService } from './services/feedback.service';
+import { AuthService } from './services/auth.service';
+
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    // Ng2CloudinaryModule,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: " ",
-      loadingSpinner: "circles"
+      loadingSpinner: "ios"
     }),
     IonicStorageModule.forRoot(),
     VerifyModule,
     PrivateModule,
     HttpClientModule,
+
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    MyApp
   ],
   providers: [
     StatusBar,
@@ -59,7 +48,9 @@ import { HTTP_INTERCEPTORS} from '@angular/common/http';
     SplashScreen,
     FeedbackService,
     UserService,
-    AuthService
+    AuthService,
   ]
 })
-export class AppModule {}
+
+export class AppModule {
+}

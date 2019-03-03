@@ -1,0 +1,178 @@
+<ion-content padding>
+  <div class="padcontend">
+    <div class="login-banner">
+      <img src="assets/imgs/recit-icon.png" width="10vh" class="logo" />
+      <span class="push-right">Already have an account? <span class="signin" (click)='page()'> Sign in</span></span>
+    </div>
+    <ion-grid>
+      <h1>Start your free  trial now.</h1>
+      <p class="subheader"> Just a few quick questions to set up your trial.</p>
+  
+
+      <ion-row class="flex"> 
+        <p>.................</p>
+        <div class="steps active">
+          <img src="../../../assets/imgs/stepong.svg" alt="">
+        </div>
+        <p>........</p>
+        <div class="steps">
+          <img src="../../../assets/imgs/steptwo.svg" alt="">
+        </div>
+        <p>.................</p>
+      </ion-row>
+
+
+
+      <h3> What type of retailer are you?</h3>
+      <ion-row>
+
+        <ion-col (click)="openid('1')" col-6 col-sm-6 col-md-4 col-lg-3 col-xl-6>
+          <div class="category">
+            <ion-row class="center " align-items-center>
+              <img src="../../../assets/imgs/fashion.svg" alt="">
+              <P>Fashion & Apparel </P>
+            </ion-row>
+
+          </div>
+        </ion-col>
+
+        <ion-col (click)="openid('2')" col-sm-6 col-md-4 col-lg-3 col-xl-6>
+          <div class="category">
+            <ion-row class="center ">
+              <img src="../../../assets/imgs/food.svg" alt="">
+              <P>Home, Lifestyle & Gifts </P>
+            </ion-row>
+          </div>
+        </ion-col>
+
+        <ion-col (click)="openid('3')" col-6 col-sm-6 col-md-4 col-lg-3 col-xl-6>
+          <div class="category">
+            <ion-row class="center ">
+
+              <img src="../../../assets/imgs/sports.svg" alt="">
+              <p>Sports, Hobbies & Toys</p>
+            </ion-row>
+          </div>
+        </ion-col>
+
+        <ion-col (click)="openid('4')" col-6 col-sm-6 col-md-4 col-lg-3 col-xl-6>
+          <div class="category">
+            <ion-row class="center ">
+
+              <img src="../../../assets/imgs/health.svg" alt="">
+              <p>Health & Beauty Retail</p>
+            </ion-row>
+
+          </div>
+        </ion-col>
+        <ion-col (click)="openid('5')" col-6 col-sm-6 col-md-4 col-lg-3 col-xl-6>
+          <div class="category">
+            <ion-row class="center ">
+
+              <img src="../../../assets/imgs/food.svg" alt="">
+              <p>Food & Drink Retail
+              </p>
+            </ion-row>
+
+
+          </div>
+        </ion-col>
+        <ion-col (click)="openid('6')" col-6 col-sm-6 col-md-4 col-lg-3 col-xl-6>
+          <div class="category">
+            <ion-row class="center ">
+
+              <img src="../../../assets/imgs/cafe.svg" alt="">
+              <p>Cafe & Restaurants
+              </p>
+            </ion-row>
+
+          </div>
+        </ion-col>
+        <ion-col (click)="openid('7')" col-6 col-sm-6 col-md-4 col-lg-3 col-xl-6>
+          <div class="category">
+            <ion-row class="center ">
+
+              <img src="../../../assets/imgs/salons.svg" alt="">
+              <p>Salons & Barbershops</p>
+            </ion-row>
+
+          </div>
+        </ion-col>
+        <ion-col (click)="openid('8')" col-6 col-sm-6 col-md-4 col-lg-3 col-xl-6>
+          <div class="category">
+            <ion-row class="center ">
+              <ion-row style="width:12vh">
+                <img src="../../../assets/imgs/others.svg" alt="">
+              </ion-row>
+              <p>Others</p>
+            </ion-row>
+
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+
+    <form *ngIf="steptwo" id="step" [formGroup]="info" #scrollMe (ngSubmit)="businessowner()">
+
+
+      <ion-row class="flex top-space">
+        <p>...............</p>
+        <div class="steps active">
+          <img src="../../../assets/imgs/goodstetwo.svg" alt="">
+        </div>
+        <p>........</p>
+        <div class="steps active">
+          <img src="../../../assets/imgs/steptwo.svg" alt="">
+        </div>
+        <p>................</p>
+      </ion-row>
+
+      <p class="text">Almost Done! <br /> Fill the form below to set up your store.</p>
+
+      <ion-list>
+        <ion-item>
+          <ion-input type="text" placeholder="Brand Name" formControlName="business_name" autofocus></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" placeholder="Sms name(10 characters)" formControlName="unique_name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+
+          <ion-input type="text" placeholder="Your Full Name" formControlName="user_full_name"></ion-input>
+        </ion-item> 
+
+
+        <ion-item>
+          <ion-input type="number" placeholder="Your Phone Number" formControlName="phone"></ion-input>
+        </ion-item>
+
+
+
+        <ion-item>
+          <ion-input type="password" placeholder="Password" formControlName="user_password"></ion-input>
+        </ion-item>
+
+        <ion-item class="date">
+          <ion-label class="date-label">Country</ion-label>
+          <ion-select class="" formControlName="country">
+              <div *ngFor="let item of country">
+                  <ion-option [value]="item.name">{{item.name}}</ion-option>
+                </div>
+         
+          </ion-select>
+        </ion-item>
+
+      </ion-list>
+      <button ion-button full type="submit" [disabled]="!info.valid"> Proceed</button>
+
+    </form>
+    <!-- <button ion-button full (click)="page()"> Sign in</button> -->
+  </div>
+</ion-content>

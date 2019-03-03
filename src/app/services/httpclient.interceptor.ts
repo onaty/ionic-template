@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { tap, mergeMap } from 'rxjs/operators'
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse} from '@angular/common/http';
 import { UserService } from './user.service';
 import { Events } from 'ionic-angular';
@@ -17,27 +18,25 @@ export class HttpClientInterceptor implements HttpInterceptor {
 		let customRequest;
 
     return this.userService.getUserToken()
-
-		.mergeMap(token => {
-			if (token) {
-				customRequest = req.clone({ headers: req.headers.set('Authorization',  token )})
-			} else {
-        customRequest = req.clone({ headers: req.headers.set('Authorization','' )})
-			}
-			return next.handle(customRequest).do((request: HttpEvent<any>) => {
-				if (request instanceof HttpResponse) {
-					// do stuff with response if you want
-				}},
-				(err: any) => {
-					if (err instanceof HttpErrorResponse) {
-						if (err.status === 401) {
-							console.log("unauthorized");
-							// redirect to the login route
-							// this.authService.handleUnauthorizedUser();
-						}
-					}
-			})
-		})
+    .pipe(
+      mergeMap(token => {
+        customRequest = token ? req.clone({ headers: req.headers.set('Authorization',  token )}) : customRequest = req.clone({ headers: req.headers.set('Authorization', '' )});
+        return next.handle(customRequest)
+      }),
+      tap((request: HttpEvent<any>) => {
+        if (request instanceof HttpResponse) {
+          // do stuff with response if you want
+        }},
+        (err: any) => {
+          if (err instanceof HttpErrorResponse) {
+            if (err.status === 401) {
+              console.log("unauthorized");
+              // redirect to the login route
+              // this.authService.handleUnauthorizedUser();
+            }
+          }
+      })
+    )
 	}
 
 }

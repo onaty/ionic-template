@@ -1,7 +1,5 @@
 {
-  "name": "frig",
-  "integrations": {
-    "cordova": {}
-  },
+  "name": "myApp",
+  "integrations": {},
   "type": "ionic-angular"
 }

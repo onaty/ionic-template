@@ -1,29 +1,17 @@
-<ion-content class="page-login ">
-  <div class="image centered ">
-    <div>
-      <img class="" src="assets/imgs/recit-black.png" />
-    </div>
-  </div>
-  <form id="step" [formGroup]="info" (ngSubmit)="signin()">
-    <ion-list inset>
-      <h3 style="text-align: center; font-weight: 300;">Enter Your Login Details</h3>
-      <ion-item no-lines>
+<!--
+  Generated template for the SigninPage page.
 
-        <ion-input type="text" formControlName="email" autofocus name="merchant_phone" placeholder="Email"></ion-input>
-      </ion-item>
-      <br>
-      <ion-item no-lines>
-        <ion-input type="password" formControlName="password" name="password" placeholder="Password"></ion-input>
-      </ion-item>
-      <button ion-button block id="login" [disabled]="!info.valid" type="submit">Log In</button>
-      <p (click)="forgot()" class="forgot">
-        <a> Forgot Password?</a>
-      </p>
-      <p class="member">
-        <span>Don't have an account
-          <a (click)="frs()"> Sign Up</a>
-        </span>
-      </p>
-    </ion-list>
-  </form>
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>signin</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button (click)="homepage()" ion-button large>Home page</button>
+
 </ion-content>
